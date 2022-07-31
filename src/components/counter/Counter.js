@@ -1,12 +1,15 @@
 import { useReducer, useState } from "react";
 
-const initialState = [
-  {
-    id: Date.now(),
-    name: "John",
-    email: "john@example.com",
-  },
-];
+const initialState = {
+  count: 0,
+  users: [
+    {
+      id: Date.now(),
+      name: "John",
+      email: "john@example.com",
+    },
+  ],
+};
 //   count: 0,
 //   users:
 
@@ -28,10 +31,13 @@ const reducer = (state, action) => {
         count: action.payload,
       };
     case "add":
-      return [...state, action.payload];
+      return { ...state, users: [...state.users, action.payload] };
 
     case "delete":
-      return state.filter((user) => user.id !== action.payload.id);
+      return {
+        ...state,
+        users: state.users.filter((user) => user.id !== action.payload.id),
+      };
 
     default:
       return state;
@@ -43,8 +49,6 @@ const Counter = () => {
   const [value, setValue] = useState(null);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
-
-  console.log(state);
   const submitForm = (e) => {
     e.preventDefault();
     setName("");
@@ -56,15 +60,21 @@ const Counter = () => {
     };
     dispatch({ type: "add", payload: contact });
   };
+  const byValue = () => {
+        
+    if (typeof value !== "number") {
+      alert("Please enter a number");
+    } else {
+      dispatch({ type: "byValue", payload: value });
+    }
+  };
   return (
     <div style={{ margin: "100px" }}>
-      {/* <h2>{state.count}</h2> */}
+      <h2>{state.count}</h2>
       <button onClick={() => dispatch({ type: "increment" })}>Increase</button>
       <button onClick={() => dispatch({ type: "decrement" })}>Decrease</button>
       <input type="number" onChange={(e) => setValue(Number(e.target.value))} />
-      <button onClick={() => dispatch({ type: "byValue", payload: value })}>
-        Add
-      </button>
+      <button onClick={byValue}>Add</button>
       <div
         style={{
           display: "flex",
@@ -97,7 +107,7 @@ const Counter = () => {
             padding: "10px",
           }}
         >
-          {state.map((user) => {
+          {state.users.map((user) => {
             return (
               <ul
                 style={{
