@@ -30,6 +30,9 @@ const reducer = (state, action) => {
     case "add":
       return [...state, action.payload];
 
+    case "delete":
+      return state.filter((user) => user.id !== action.payload.id);
+
     default:
       return state;
   }
@@ -96,13 +99,23 @@ const Counter = () => {
         >
           {state.map((user) => {
             return (
-              <ul style={{
-                border: "1px solid black",
-                padding: "10px",
-              }} key={user.id}>
+              <ul
+                style={{
+                  border: "1px solid black",
+                  padding: "10px",
+                }}
+                key={user.id}
+              >
                 <li>{user.name}</li>
                 <li>{user.email}</li>
                 <li>{user.id}</li>
+                <button
+                  onClick={() =>
+                    dispatch({ type: "delete", payload: { id: user.id } })
+                  }
+                >
+                  Delete
+                </button>
               </ul>
             );
           })}
