@@ -1,18 +1,16 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 const initialState = {
   count: 0,
-  users: [
-    {
-      id: Date.now(),
-      name: "John",
-      email: "john@example.com",
-    },
-  ],
+  users: [],
 };
 //   count: 0,
 //   users:
-
+if (localStorage.getItem("contacts")) {
+  initialState.users = JSON.parse(localStorage.getItem("contacts"));
+} else {
+  initialState.users = [];
+}
 const reducer = (state, action) => {
   switch (action.type) {
     case "increment":
@@ -46,6 +44,10 @@ const reducer = (state, action) => {
 
 const Counter = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(state.users));
+  }, [state.users]);
   const [value, setValue] = useState(null);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
@@ -59,15 +61,16 @@ const Counter = () => {
       email,
     };
     dispatch({ type: "add", payload: contact });
+    localStorage.setItem("contacts", JSON.stringify([...state.users, contact]));
   };
   const byValue = () => {
-        
     if (typeof value !== "number") {
       alert("Please enter a number");
     } else {
       dispatch({ type: "byValue", payload: value });
     }
   };
+
   return (
     <div style={{ margin: "100px" }}>
       <h2>{state.count}</h2>
@@ -77,9 +80,6 @@ const Counter = () => {
       <button onClick={byValue}>Add</button>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
           marginTop: "100px",
           gap: "10px",
         }}
