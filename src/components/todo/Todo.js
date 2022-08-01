@@ -22,16 +22,26 @@ const Todo = () => {
     setTodos([]);
     localStorage.removeItem("localTasks");
   };
+  const handleDelete = (id) => {
+    const rest = todos.filter((todo) => todo.id !== id);
+    setTodos(rest);
+    localStorage.setItem("localTasks", JSON.stringify(rest));
+  };
   return (
     <>
       <div>
         <input
           type="text"
           onChange={(e) => setTodo(e.target.value)}
-          value={todo && todo} style={{ padding: "10px" }}
+          value={todo && todo}
+          style={{ padding: "10px" }}
         />{" "}
-        <button onClick={addTodo}  style={{ padding: "10px",margin: "10px" }}>Add</button>
-        <button onClick={clear}  style={{ padding: "10px" }}>Clear</button>
+        <button onClick={addTodo} style={{ padding: "10px", margin: "10px" }}>
+          Add
+        </button>
+        <button onClick={clear} style={{ padding: "10px" }}>
+          Clear
+        </button>
       </div>
       <div
         style={{
@@ -56,6 +66,14 @@ const Todo = () => {
                 </li>
                 <li>
                   <small style={{ color: "gray" }}>{Date(todo.id)}</small>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleDelete(todo.id)}
+                    style={{ padding: "5px", marginTop: "10px" }}
+                  >
+                    Delete
+                  </button>
                 </li>
               </ul>
             );
