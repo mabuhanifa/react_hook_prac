@@ -28,10 +28,10 @@ const Todo = () => {
         <input
           type="text"
           onChange={(e) => setTodo(e.target.value)}
-          value={todo && todo}
+          value={todo && todo} style={{ padding: "10px" }}
         />{" "}
-        <button onClick={addTodo}>Add</button>
-        <button onClick={clear}>Clear</button>
+        <button onClick={addTodo}  style={{ padding: "10px",margin: "10px" }}>Add</button>
+        <button onClick={clear}  style={{ padding: "10px" }}>Clear</button>
       </div>
       <div
         style={{
@@ -51,8 +51,12 @@ const Todo = () => {
                   border: "1px solid lightGray",
                 }}
               >
-                <li>{todo.title}</li>
-                <li>{Date(todo.id)}</li>
+                <li>
+                  <h2>{todo.title}</h2>
+                </li>
+                <li>
+                  <small style={{ color: "gray" }}>{Date(todo.id)}</small>
+                </li>
               </ul>
             );
           })}
