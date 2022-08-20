@@ -4,8 +4,8 @@ const initialState = {
   count: 0,
   users: [],
 };
-//   count: 0,
-//   users:
+
+//getting data from local storage
 if (localStorage.getItem("contacts")) {
   initialState.users = JSON.parse(localStorage.getItem("contacts"));
 } else {
@@ -85,6 +85,7 @@ const Counter = () => {
         }}
       >
         <div>
+          {/* --------------form---------------- */}
           <form onSubmit={submitForm}>
             <input
               type="text"
