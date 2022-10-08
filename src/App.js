@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Id from "./components/Id";
 
@@ -11,16 +12,17 @@ function App() {
     //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
     return `${s4() + "-" + s4() + "-" + s4() + "-" + s4()}`;
   };
-  let arr = [];
-  for (let i = 0; i < 10; i++) {
-    arr.push(createId());
-  }
 
+  let data = [];
+  for (let i = 0; i < 100; i++) {
+    data.push(createId());
+  }
+  const [arr, setArr] = useState(data);
   return (
     <div>
       <div>
         {arr.map((a) => {
-          return <Id key={a} aaa={a} arr={arr} />;
+          return <Id key={a} aaa={a} arr={arr} setArr={setArr} />;
         })}
       </div>
     </div>
