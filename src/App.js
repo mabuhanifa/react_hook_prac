@@ -1,11 +1,9 @@
 import "./App.css";
+import useGenerateId from "./hooks/useId";
 
 function App() {
-  return (
-    <div>
-      
-    </div>
-  );
+  const b = useGenerateId();
+  return <div>{b}</div>;
 }
 
 export default App;
