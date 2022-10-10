@@ -1,6 +1,7 @@
 import React from 'react';
+import "../App.css";
 
-const Cart = () => {
+const Cart = ({state,dispatch}) => {
     return (
         <div>
             

@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+import "../App.css";
+import Product from "./Product";
 
-const Products = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const Products = ({ state, dispatch }) => {
+  const { products, cart } = state;
+  console.log(products);
+  return (
+    <div className="products">
+      {products &&
+        products.map((product) => {
+          return <Product product={product} key={product.id}/>;
+        })}
+    </div>
+  );
 };
 
 export default Products;

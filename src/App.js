@@ -12,7 +12,6 @@ function App() {
   };
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
-  console.log(state);
   const fetchProducts = async () => {
     const {
       data: { products },
@@ -26,9 +25,9 @@ function App() {
     fetchProducts();
   }, []);
   return (
-    <div>
-      <Products/>
-      <Cart/>
+    <div className="app">
+      <Products state={state} dispatch={dispatch} />
+      <Cart state={state} dispatch={dispatch} />
     </div>
   );
 }
