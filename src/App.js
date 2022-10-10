@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useReducer } from "react";
 import "./App.css";
+import Cart from "./components/Cart";
+import Products from "./components/Products";
 import { cartReducer } from "./reducers/cartReducer";
 
 function App() {
@@ -25,7 +27,8 @@ function App() {
   }, []);
   return (
     <div>
-      <div></div>
+      <Products/>
+      <Cart/>
     </div>
   );
 }
