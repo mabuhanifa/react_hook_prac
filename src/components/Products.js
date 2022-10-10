@@ -9,7 +9,14 @@ const Products = ({ state, dispatch }) => {
     <div className="products">
       {products &&
         products.map((product) => {
-          return <Product product={product} key={product.id}/>;
+          return (
+            <Product
+              product={product}
+              key={product.id}
+              state={state}
+              dispatch={dispatch}
+            />
+          );
         })}
     </div>
   );
