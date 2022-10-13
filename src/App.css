@@ -37,6 +37,8 @@
   background-color: rgb(253, 52, 52);
 }
 .cart {
+  width: 30%;
   margin: 0 25px;
   padding: 10px;
+  text-align: center;
 }
