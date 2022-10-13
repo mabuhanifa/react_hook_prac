@@ -48,6 +48,9 @@
 .item {
   margin: 20px 0;
   text-align: start;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
 }
 .flex {
   display: flex;
@@ -59,4 +62,11 @@
   height: 50px;
   object-fit: cover;
   border-radius: 10px;
+}
+.i-btn {
+  padding: 5px;
+}
+.js-i {
+  position: absolute;
+  right: 5px;
 }

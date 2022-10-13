@@ -1,17 +1,18 @@
 import React from "react";
 
 const Product = ({ product, state: { cart }, dispatch }) => {
+  const newProduct = { ...product, quantity: 1 };
   const addToCart = () => {
     dispatch({
       type: "ADD_TO_CART",
-      payload: product,
+      payload: newProduct,
     });
   };
 
   const removeFromCart = () => {
     dispatch({
       type: "REMOVE_FROM_CART",
-      payload: product,
+      payload: newProduct,
     });
   };
 

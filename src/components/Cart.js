@@ -3,8 +3,10 @@ import "../App.css";
 import CartItem from "./CartItem";
 
 const Cart = ({ state, dispatch }) => {
+  
   const { cart } = state;
-  const price = cart.reduce((a, c) => c.price + a, 0);
+  console.log(cart);
+  const price = cart.reduce((a, c) => c.price * c.quantity + a, 0);
   return (
     <div className="cart">
       <h2>Cart</h2>
@@ -14,7 +16,7 @@ const Cart = ({ state, dispatch }) => {
       <div className="cartItem">
         {cart &&
           cart.map((item) => {
-            return <CartItem item={item} key={item.id}/>;
+            return <CartItem item={item} key={item.id} dispatch={dispatch} />;
           })}
       </div>
     </div>
