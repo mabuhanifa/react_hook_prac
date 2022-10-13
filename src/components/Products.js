@@ -4,7 +4,6 @@ import Product from "./Product";
 
 const Products = ({ state, dispatch }) => {
   const { products, cart } = state;
-  console.log(cart);
   return (
     <div className="products">
       {products &&

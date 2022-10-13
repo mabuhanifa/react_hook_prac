@@ -1,5 +1,6 @@
 .app {
   margin: 50px;
+  display: flex;
 }
 
 .products {
@@ -31,4 +32,11 @@
   cursor: pointer;
   font-weight: bold;
   border-radius: 5px;
+}
+.red {
+  background-color: rgb(253, 52, 52);
+}
+.cart {
+  margin: 0 25px;
+  padding: 10px;
 }

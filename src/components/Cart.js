@@ -2,9 +2,11 @@ import React from 'react';
 import "../App.css";
 
 const Cart = ({state,dispatch}) => {
+    const { cart } = state;
+    console.log(cart)
     return (
-        <div>
-            
+        <div className='cart'>
+            {cart?.length}
         </div>
     );
 };

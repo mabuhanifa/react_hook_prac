@@ -8,9 +8,11 @@ export const cartReducer = (state, action) => {
     // "ADD_TO_CART"
     case "ADD_TO_CART":
       return { ...state, cart: [...state.cart, action.payload] };
-    // "ADD_TO_CART"
+
+    // "REMOVE_FROM_CART"
     case "REMOVE_FROM_CART":
-      return { ...state, cart: [...state.cart, action.payload] };
+      const restCart = state.cart.filter((c) => c !== action.payload);
+      return { ...state, cart: restCart };
     default:
       return state;
   }
