@@ -3,7 +3,7 @@ import "../App.css";
 import Product from "./Product";
 
 const Products = ({ state, dispatch }) => {
-  const { products, cart } = state;
+  const { products } = state;
   return (
     <div className="products">
       {products &&
