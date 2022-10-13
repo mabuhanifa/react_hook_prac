@@ -2,7 +2,10 @@
   margin: 50px;
   display: flex;
 }
-
+h1,
+h2 {
+  margin: 10px 0;
+}
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

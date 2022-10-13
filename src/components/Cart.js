@@ -9,9 +9,9 @@ const Cart = ({ state, dispatch }) => {
   const price = cart.reduce((a, c) => c.price * c.quantity + a, 0);
   return (
     <div className="cart">
-      <h2>Cart</h2>
-      <h4>Total Items: {cart?.length}</h4>
-      <h4>Total Price: {price}</h4>
+      <h1>Cart</h1>
+      <h2>Total Items: {cart?.length}</h2>
+      <h2>Total Price: {price}</h2>
 
       <div className="cartItem">
         {cart &&
