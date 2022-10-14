@@ -4,6 +4,7 @@ import "./App.css";
 import Cart from "./components/Cart";
 import Products from "./components/Products";
 import { cartReducer } from "./reducers/cartReducer";
+import { ReducerContext } from "./reducers/Context";
 
 function App() {
   const initialState = {
@@ -25,10 +26,12 @@ function App() {
     fetchProducts();
   }, []);
   return (
-    <div className="app">
-      <Products state={state} dispatch={dispatch} />
-      <Cart state={state} dispatch={dispatch} />
-    </div>
+    <ReducerContext.Provider value={{ state, dispatch }}>
+      <div className="app">
+        <Products state={state} dispatch={dispatch} />
+        <Cart state={state} dispatch={dispatch} />
+      </div>
+    </ReducerContext.Provider>
   );
 }
 

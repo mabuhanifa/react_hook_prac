@@ -5,7 +5,6 @@ import CartItem from "./CartItem";
 const Cart = ({ state, dispatch }) => {
   
   const { cart } = state;
-  console.log(cart);
   const price = cart.reduce((a, c) => c.price * c.quantity + a, 0);
   return (
     <div className="cart">
