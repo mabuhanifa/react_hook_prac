@@ -3,22 +3,16 @@ import "../App.css";
 import { ReducerContext } from "../reducers/Context";
 import Product from "./Product";
 
-const Products = ({ state, dispatch }) => {
-  const abc =useContext(ReducerContext);
-  console.log(abc)
-  const { products } = state;
+const Products = () => {
+  const {
+    state: { products }
+  } = useContext(ReducerContext);
+  console.log(products);
   return (
     <div className="products">
       {products &&
         products.map((product) => {
-          return (
-            <Product
-              product={product}
-              key={product.id}
-              state={state}
-              dispatch={dispatch}
-            />
-          );
+          return <Product product={product} key={product.id} />;
         })}
     </div>
   );

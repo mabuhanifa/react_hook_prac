@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ReducerContext } from "../reducers/Context";
 
-const Product = ({ product, state: { cart }, dispatch }) => {
+const Product = ({ product }) => {
+  const { state:{cart}, dispatch } = useContext(ReducerContext);
   const newProduct = { ...product, quantity: 1 };
   const addToCart = () => {
     dispatch({

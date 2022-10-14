@@ -28,8 +28,8 @@ function App() {
   return (
     <ReducerContext.Provider value={{ state, dispatch }}>
       <div className="app">
-        <Products state={state} dispatch={dispatch} />
-        <Cart state={state} dispatch={dispatch} />
+        <Products  />
+        <Cart  />
       </div>
     </ReducerContext.Provider>
   );
