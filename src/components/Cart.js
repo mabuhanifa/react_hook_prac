@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../App.css";
+import { ReducerContext } from "../reducers/Context";
 import CartItem from "./CartItem";
 
-const Cart = ({ state, dispatch }) => {
-  
-  const { cart } = state;
+const Cart = () => {
+  const { state:{cart}, dispatch } = useContext(ReducerContext);
   const price = cart.reduce((a, c) => c.price * c.quantity + a, 0);
   return (
     <div className="cart">
