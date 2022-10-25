@@ -6,8 +6,7 @@ import Products from "./components/Products";
 import useProduct from "./contextApi/ProductContext";
 
 function App() {
-  const { state, dispatch } = useProduct();
-  console.log(state);
+  const { dispatch } = useProduct();
 
   useEffect(() => {
     const fetchProducts = async () => {

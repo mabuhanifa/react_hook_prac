@@ -2,9 +2,10 @@ import { createContext, useContext, useReducer } from "react";
 import { cartReducer } from "../reducers/cartReducer";
 
 const initialState = {
-    products: [],
-    cart: [],
-  };
+  products: [],
+  cart: [],
+  functions: {},
+};
 
 const ProductContext = createContext();
 
