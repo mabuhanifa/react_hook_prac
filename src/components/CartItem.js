@@ -1,6 +1,9 @@
 import React from "react";
+import useProduct from "../contextApi/ProductContext";
 
 const CartItem = ({ item, dispatch }) => {
+  const product = useProduct();
+  console.log(product);
   const { title, thumbnail } = item;
   const changeQty = (id, quantity) => {
     dispatch({

@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../App.css";
-import { ReducerContext } from "../reducers/Context";
+import useProduct from "../contextApi/ProductContext";
 import Product from "./Product";
 
 const Products = () => {
   const {
-    state: { products }
-  } = useContext(ReducerContext);
-  console.log(products);
+    state: { products },
+  } = useProduct();
   return (
     <div className="products">
       {products &&

@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { ReducerContext } from "../reducers/Context";
+import React from "react";
+import useProduct from "../contextApi/ProductContext";
 
 const Product = ({ product }) => {
-  const { state:{cart}, dispatch } = useContext(ReducerContext);
+  const { state:{cart}, dispatch } = useProduct();
   const newProduct = { ...product, quantity: 1 };
   const addToCart = () => {
     dispatch({
