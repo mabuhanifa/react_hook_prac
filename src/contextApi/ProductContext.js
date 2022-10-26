@@ -4,7 +4,6 @@ import { cartReducer } from "../reducers/cartReducer";
 const initialState = {
   products: [],
   cart: [],
-  functions: {},
 };
 
 const ProductContext = createContext();
@@ -20,7 +19,7 @@ export const ProductProvider = ({ children }) => {
 const useProduct = () => {
   const context = useContext(ProductContext);
   if (context === undefined) {
-    throw new Error("ShopContext is undefined");
+    throw new Error("ProductContext is undefined");
   }
   return context;
 };
